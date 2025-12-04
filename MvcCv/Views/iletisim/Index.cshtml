@@ -1,0 +1,49 @@
+﻿﻿@using MvcCv.Models.Entity
+@model List<Tbliletisim>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+
+
+    <div class="card-body">
+
+        <div class="timeline">
+            @foreach (var item in Model)
+            {
+
+
+                <div class="time-label">
+                    <span class="bg-info">
+                        @(((DateTime)item.Tarih).ToString("dd-MMM-yyyy"))
+                    </span>
+                </div>
+
+                <!-- Timeline item -->
+                <div>
+                    <i class="fas fa-comments bg-warning"></i>
+
+                    <div class="timeline-item">
+                        <span class="time"><i class="far fa-clock"></i> @item.Mail</span>
+
+                        <h3 class="timeline-header">
+                            <a href="#">@item.AdSoyad</a>  @item.Konu
+                        </h3>
+
+                        <div class="timeline-body">
+                            @item.Mesaj
+                        </div>
+
+
+                    </div>
+                </div>
+
+            }
+
+
+        </div>
+
+    </div>
+</div>
